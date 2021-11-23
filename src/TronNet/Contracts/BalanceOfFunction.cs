@@ -1,4 +1,5 @@
-﻿using TronNet.ABI.FunctionEncoding.Attributes;
+﻿using System.Numerics;
+using TronNet.ABI.FunctionEncoding.Attributes;
 
 namespace TronNet.Contracts
 {
@@ -14,6 +15,6 @@ namespace TronNet.Contracts
     public class BalanceOfFunctionOutput : IFunctionOutputDTO
     {
         [Parameter("uint256", 1)]
-        public long Balance { get; set; }
+        public BigInteger Balance { get; set; }
     }
 }

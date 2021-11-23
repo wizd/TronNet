@@ -44,7 +44,7 @@ namespace TronNet
 
         internal byte GetPublicAddressPrefix()
         {
-            return _network == TronNetwork.MainNet ? 0x41 : 0xa0;
+            return _network == TronNetwork.MainNet ? (byte)0x41 : (byte)0xa0;
         }
 
         public static string GetPublicAddress(string privateKey, TronNetwork network = TronNetwork.MainNet)

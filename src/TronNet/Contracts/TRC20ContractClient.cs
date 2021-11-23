@@ -86,7 +86,7 @@ namespace TronNet.Contracts
                 var trc20Transfer = new TransferFunction
                 {
                     To = toAddressHex,
-                    TokenAmount = Convert.ToInt64(tokenAmount),
+                    TokenAmount = (BigInteger)tokenAmount,
                 };
 
                 var encodedHex = new FunctionCallEncoder().EncodeRequest(trc20Transfer, functionABI.Sha3Signature);
@@ -170,7 +170,7 @@ namespace TronNet.Contracts
 
                 var result = new FunctionCallDecoder().DecodeFunctionOutput<BalanceOfFunctionOutput>(transactionExtention.ConstantResult[0].ToByteArray().ToHex());
 
-                var balance = Convert.ToDecimal(result.Balance);
+                var balance = (decimal)result.Balance; //Convert.ToDecimal(result.Balance);
                 if (decimals > 0)
                 {
                     balance /= Convert.ToDecimal(Math.Pow(10, decimals));
